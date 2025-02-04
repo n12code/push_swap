@@ -6,7 +6,7 @@
 /*   By: nbodin <nbodin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 09:58:11 by nbodin            #+#    #+#             */
-/*   Updated: 2025/02/04 10:51:44 by nbodin           ###   ########lyon.fr   */
+/*   Updated: 2025/02/04 14:46:33 by nbodin           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,9 @@ int	find_pos_a(Stack *stack, int node_value)
 	current = stack->begin;
 	while (current)
 	{
-		if (current->back && (current->back->value < node_value && node_value < current->value))
+		if (!current->back && current == stack->begin && stack->end->value < node_value && node_value < current->value)
+			return (i);
+		if (current->back && current->back->value < node_value && node_value < current->value)
 			return (i);
 		current = current->next;
 		i++;

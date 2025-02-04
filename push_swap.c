@@ -6,7 +6,7 @@
 /*   By: nbodin <nbodin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 09:26:32 by nbodin            #+#    #+#             */
-/*   Updated: 2025/02/04 10:55:43 by nbodin           ###   ########lyon.fr   */
+/*   Updated: 2025/02/04 14:35:39 by nbodin           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	push_swap(Stack **a, Stack **b, Quartils *quartils)
 
 void	push_back_into_a(Stack **a, Stack **b)
 {
-	while (*b)
+	while ((*b)->length > 0)
 		insert_in_a(a, b, find_best_move(*a, *b));
 	bring_min_to_top(a);
 }
