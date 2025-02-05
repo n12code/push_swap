@@ -6,7 +6,7 @@
 /*   By: nbodin <nbodin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 14:41:42 by nbodin            #+#    #+#             */
-/*   Updated: 2025/02/05 10:19:49 by nbodin           ###   ########lyon.fr   */
+/*   Updated: 2025/02/05 17:31:17 by nbodin           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 
 // re-check the system to get the quartils, need to be more precise
-t_quartils	*get_quartils(t_stack *a)
+t_quartils	*get_quartils(t_stack *a, t_stack *b, int *number_array)
 {
 	int			q1_index;
 	int			med_index;
@@ -23,7 +23,12 @@ t_quartils	*get_quartils(t_stack *a)
 
 	quartils = malloc(sizeof(*quartils));
 	if (!quartils)
-		return (NULL);
+	{
+		free(number_array);
+		clear_stack(&a);
+		clear_stack(&b);
+		exit(1);
+	}
 	if (a->length % 2 == 0)
 		med_index = a->length / 2;
 	else

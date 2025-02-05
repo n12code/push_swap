@@ -6,7 +6,7 @@
 /*   By: nbodin <nbodin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 09:26:32 by nbodin            #+#    #+#             */
-/*   Updated: 2025/02/05 11:30:14 by nbodin           ###   ########lyon.fr   */
+/*   Updated: 2025/02/05 15:37:27 by nbodin           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	push_swap(t_stack **a, t_stack **b, t_quartils *quartils)
 {
 	push_quartils(a, b, quartils);
-	//errors done above
 	if (!is_sorted(*a))
 		handle_three(a);
 	while ((*b)->length > 0)

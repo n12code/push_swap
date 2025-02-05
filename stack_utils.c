@@ -6,7 +6,7 @@
 /*   By: nbodin <nbodin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 14:41:47 by nbodin            #+#    #+#             */
-/*   Updated: 2025/02/05 10:03:08 by nbodin           ###   ########lyon.fr   */
+/*   Updated: 2025/02/05 16:16:44 by nbodin           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	clear_stack(t_stack **stack)
 	t_stacknode	*current;
 	t_stacknode	*next;
 
-	if (is_empty_stack(*stack))
+	if (!(*stack))
 		return ;
 	current = (*stack)->begin;
 	while (current)
@@ -34,7 +34,7 @@ void	clear_stack(t_stack **stack)
 
 int	is_empty_stack(t_stack *stack)
 {
-	if (stack == NULL)
+	if (stack->length == 0)
 		return (1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: nbodin <nbodin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 10:43:33 by nbodin            #+#    #+#             */
-/*   Updated: 2025/02/05 10:07:26 by nbodin           ###   ########lyon.fr   */
+/*   Updated: 2025/02/05 17:31:41 by nbodin           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,10 @@ typedef struct Quartils
 	int					q3;
 }						t_quartils;
 
+void					free_ressources(t_stack *a, t_stack *b,
+							int *number_array, t_quartils *quartils);
+int						*malloc_three(t_stack **a, t_stack **b, int argc);
+
 int						is_digit(char *str);
 long					ft_atol(const char *str);
 int						ft_strncmp(const char *s1, const char *s2, size_t n);
@@ -62,7 +66,8 @@ void					get_first_quartil(t_stack *a, t_quartils **quartils,
 							int q1_index);
 void					get_third_quartil(t_stack *a, t_quartils **quartils,
 							int q3_index);
-t_quartils				*get_quartils(t_stack *a);
+t_quartils				*get_quartils(t_stack *a, t_stack *b,
+							int *number_array);
 
 void					bring_min_to_top(t_stack **a);
 void					handle_three(t_stack **a);

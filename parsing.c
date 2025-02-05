@@ -6,7 +6,7 @@
 /*   By: nbodin <nbodin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 15:00:57 by nbodin            #+#    #+#             */
-/*   Updated: 2025/02/05 10:29:57 by nbodin           ###   ########lyon.fr   */
+/*   Updated: 2025/02/05 16:15:57 by nbodin           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,11 @@ void	create_stack(t_stack **a, size_t nb_of_elements, int *number_array)
 	{
 		node = create_new_node(number_array[i]);
 		if (!node)
+		{
+			clear_stack(a);
+			*a = NULL;
 			return ;
+		}
 		push_stack_bottom(a, node);
 		if (!(*a))
 			return ;
