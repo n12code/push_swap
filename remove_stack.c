@@ -6,17 +6,17 @@
 /*   By: nbodin <nbodin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 14:41:46 by nbodin            #+#    #+#             */
-/*   Updated: 2025/02/04 10:52:59 by nbodin           ###   ########lyon.fr   */
+/*   Updated: 2025/02/05 10:03:02 by nbodin           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdlib.h>
 
-StackNode	*remove_stack_top(Stack **stack)
+t_stacknode	*remove_stack_top(t_stack **stack)
 {
-	StackNode	*temp;
-	
+	t_stacknode	*temp;
+
 	if (is_empty_stack(*stack))
 		return (NULL);
 	else if ((*stack)->begin == (*stack)->end)
@@ -40,9 +40,9 @@ StackNode	*remove_stack_top(Stack **stack)
 	return (temp);
 }
 
-StackNode	*remove_stack_bottom(Stack **stack)
+t_stacknode	*remove_stack_bottom(t_stack **stack)
 {
-	StackNode	*temp;
+	t_stacknode	*temp;
 
 	if (is_empty_stack(*stack))
 		return (NULL);

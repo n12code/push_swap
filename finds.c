@@ -6,16 +6,16 @@
 /*   By: nbodin <nbodin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 09:58:11 by nbodin            #+#    #+#             */
-/*   Updated: 2025/02/04 14:46:33 by nbodin           ###   ########lyon.fr   */
+/*   Updated: 2025/02/05 10:01:52 by nbodin           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	find_min(Stack *stack)
+int	find_min(t_stack *stack)
 {
 	int			min;
-	StackNode	*current;
+	t_stacknode	*current;
 
 	min = stack->begin->value;
 	current = stack->begin->next;
@@ -28,10 +28,10 @@ int	find_min(Stack *stack)
 	return (min);
 }
 
-int	find_max(Stack *stack)
+int	find_max(t_stack *stack)
 {
 	int			max;
-	StackNode	*current;
+	t_stacknode	*current;
 
 	max = stack->begin->value;
 	current = stack->begin->next;
@@ -44,9 +44,9 @@ int	find_max(Stack *stack)
 	return (max);
 }
 
-int	find_pos(Stack *stack, int node_value)
+int	find_pos(t_stack *stack, int node_value)
 {
-	StackNode	*current;
+	t_stacknode	*current;
 	int			i;
 
 	i = 0;
@@ -61,9 +61,9 @@ int	find_pos(Stack *stack, int node_value)
 	return (i);
 }
 
-int	find_pos_a(Stack *stack, int node_value)
+int	find_pos_a(t_stack *stack, int node_value)
 {
-	StackNode	*current;
+	t_stacknode	*current;
 	int			min;
 	int			max;
 	int			i;
@@ -76,9 +76,11 @@ int	find_pos_a(Stack *stack, int node_value)
 	current = stack->begin;
 	while (current)
 	{
-		if (!current->back && current == stack->begin && stack->end->value < node_value && node_value < current->value)
+		if (!current->back && current == stack->begin
+			&& stack->end->value < node_value && node_value < current->value)
 			return (i);
-		if (current->back && current->back->value < node_value && node_value < current->value)
+		if (current->back
+			&& current->back->value < node_value && node_value < current->value)
 			return (i);
 		current = current->next;
 		i++;

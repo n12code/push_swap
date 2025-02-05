@@ -6,13 +6,14 @@
 /*   By: nbodin <nbodin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 15:00:57 by nbodin            #+#    #+#             */
-/*   Updated: 2025/02/04 10:52:31 by nbodin           ###   ########lyon.fr   */
+/*   Updated: 2025/02/05 10:29:57 by nbodin           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdlib.h>
 
-int	parse(int nb_of_elements, char **input, int number_array[nb_of_elements], Stack **a)
+int	parse(int nb_of_elements, char **input, int *number_array, t_stack **a)
 {
 	if (nb_of_elements <= 1)
 		return (1);
@@ -20,17 +21,17 @@ int	parse(int nb_of_elements, char **input, int number_array[nb_of_elements], St
 		return (1);
 	if (check_duplicates(nb_of_elements - 1, number_array))
 		return (1);
-	create_stack_from_array(a, nb_of_elements - 1, number_array);
+	create_stack(a, nb_of_elements - 1, number_array);
 	if (!(*a))
 		return (1);
 	return (0);
 }
 
-void	create_stack_from_array(Stack **a, size_t nb_of_elements, int number_array[nb_of_elements])
+void	create_stack(t_stack **a, size_t nb_of_elements, int *number_array)
 {
-	StackNode	*node;
+	t_stacknode	*node;
 	size_t		i;
-	
+
 	i = 0;
 	while (i < nb_of_elements)
 	{
@@ -44,16 +45,20 @@ void	create_stack_from_array(Stack **a, size_t nb_of_elements, int number_array[
 	}
 }
 
-int	create_array(size_t nb_of_elements, char **input, int number_array[nb_of_elements])
+int	create_array(size_t nb_of_elements, char **input, int *number_array)
 {
 	size_t	i;
+	long	number;
 
 	i = 0;
 	while (i < nb_of_elements)
 	{
-		if (is_digit(input[i+1]) && is_not_overflow(input[i+1]))
+		if (is_digit(input[i + 1]))
 		{
-			number_array[i] = ft_atoi((const char *)input[i + 1]);
+			number = ft_atol((const char *)input[i + 1]);
+			if (number > INT_MAX || number < INT_MIN)
+				return (1);
+			number_array[i] = (int) number;
 			i++;
 		}
 		else
@@ -62,12 +67,12 @@ int	create_array(size_t nb_of_elements, char **input, int number_array[nb_of_ele
 	return (0);
 }
 
-int	ft_atoi(const char *str)
+long	ft_atol(const char *str)
 {
 	size_t		i;
-	int			nb;
+	long		nb;
 	int			sign;
-	
+
 	i = 0;
 	nb = 0;
 	sign = 1;
@@ -85,5 +90,3 @@ int	ft_atoi(const char *str)
 	}
 	return (nb * sign);
 }
-
-

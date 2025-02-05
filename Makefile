@@ -13,8 +13,7 @@ SRC = main.c \
 	  push_stack.c \
 	  remove_stack.c \
 	  stack_utils.c \
-	#   push_swap_utils.c \
-	#   insert.c \
+	  push_swap_utils.c \
 
 CFLAGS = -Wall -Wextra -Werror -g3
 HEADER = push_swap.h

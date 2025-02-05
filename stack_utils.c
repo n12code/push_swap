@@ -6,17 +6,17 @@
 /*   By: nbodin <nbodin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 14:41:47 by nbodin            #+#    #+#             */
-/*   Updated: 2025/02/04 10:51:36 by nbodin           ###   ########lyon.fr   */
+/*   Updated: 2025/02/05 10:03:08 by nbodin           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdlib.h>
 
-void	clear_stack(Stack **stack)
+void	clear_stack(t_stack **stack)
 {
-	StackNode	*current;
-	StackNode	*next;
+	t_stacknode	*current;
+	t_stacknode	*next;
 
 	if (is_empty_stack(*stack))
 		return ;
@@ -32,7 +32,7 @@ void	clear_stack(Stack **stack)
 	return ;
 }
 
-int	is_empty_stack(Stack *stack)
+int	is_empty_stack(t_stack *stack)
 {
 	if (stack == NULL)
 		return (1);
@@ -40,9 +40,9 @@ int	is_empty_stack(Stack *stack)
 }
 
 //remove this when pushing
-void	print_stack(Stack *stack)
+void	print_stack(t_stack *stack)
 {
-	StackNode	*current;
+	t_stacknode	*current;
 
 	if (is_empty_stack(stack))
 		printf("nothing to print\n");
@@ -58,10 +58,10 @@ void	print_stack(Stack *stack)
 	}
 }
 
-StackNode	*create_new_node(int value)
+t_stacknode	*create_new_node(int value)
 {
-	StackNode	*node;
-	
+	t_stacknode	*node;
+
 	node = malloc(sizeof(*node));
 	if (!node)
 		return (NULL);

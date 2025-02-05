@@ -6,14 +6,14 @@
 /*   By: nbodin <nbodin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 15:01:07 by nbodin            #+#    #+#             */
-/*   Updated: 2025/02/04 10:52:37 by nbodin           ###   ########lyon.fr   */
+/*   Updated: 2025/02/05 10:10:18 by nbodin           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stddef.h>
 
-int		check_duplicates(size_t nb_of_elements, int number_array[nb_of_elements])
+int	check_duplicates(size_t nb_of_elements, int number_array[nb_of_elements])
 {
 	size_t	i;
 	size_t	j;
@@ -33,7 +33,7 @@ int		check_duplicates(size_t nb_of_elements, int number_array[nb_of_elements])
 	return (0);
 }
 
-int		is_digit(char *str)
+int	is_digit(char *str)
 {
 	size_t	i;
 
@@ -78,21 +78,4 @@ size_t	ft_strlen(char *str)
 	while (str[i])
 		i++;
 	return (i);
-}
-
-
-//re-check this function
-int	is_not_overflow(char *str)
-{
-	char	*limit;
-
-	if (str[0] ==  '-')
-		limit = "2147483648";
-	else
-		limit = "2147483647";
-	if (ft_strlen(str) > 10)
-		return (0);
-	if (ft_strlen(str) == 10 && ft_strncmp(str, limit, 10) > 0)
-		return (0);
-	return (1);		
 }

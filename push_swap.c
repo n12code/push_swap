@@ -6,33 +6,29 @@
 /*   By: nbodin <nbodin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 09:26:32 by nbodin            #+#    #+#             */
-/*   Updated: 2025/02/04 14:35:39 by nbodin           ###   ########lyon.fr   */
+/*   Updated: 2025/02/05 11:30:14 by nbodin           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_swap(Stack **a, Stack **b, Quartils *quartils)
+void	push_swap(t_stack **a, t_stack **b, t_quartils *quartils)
 {
 	push_quartils(a, b, quartils);
+	//errors done above
 	if (!is_sorted(*a))
 		handle_three(a);
-	push_back_into_a(a, b);
-}
-
-void	push_back_into_a(Stack **a, Stack **b)
-{
 	while ((*b)->length > 0)
 		insert_in_a(a, b, find_best_move(*a, *b));
 	bring_min_to_top(a);
 }
 
-void	insert_in_a(Stack **a, Stack **b, int best_move)
+void	insert_in_a(t_stack **a, t_stack **b, int best_move)
 {
-	int		pos_a;
-	int		pos_b;
-	int		opti;
-	
+	int	pos_a;
+	int	pos_b;
+	int	opti;
+
 	pos_a = find_pos_a(*a, best_move);
 	pos_b = find_pos(*b, best_move);
 	opti = optimize_moves(a, b, pos_a, pos_b);
@@ -43,52 +39,10 @@ void	insert_in_a(Stack **a, Stack **b, int best_move)
 	push_a(a, b);
 }
 
-void	bring_b_to_pos(Stack **b, int pos_b)
+void	bring_min_to_top(t_stack **a)
 {
-	if (pos_b <= (*b)->length / 2)
-		while (pos_b--)
-			rotate_b(b);
-	else
-	{
-		pos_b = (*b)->length - pos_b;
-		while (pos_b--)
-			reverse_rotate_b(b);
-	}
-}
-
-void	bring_a_to_pos(Stack **a, int pos_a)
-{
-	if (pos_a <= (*a)->length / 2)
-		while (pos_a--)
-			rotate_a(a);
-	else
-	{
-		pos_a = (*a)->length - pos_a;
-		while (pos_a--)
-			reverse_rotate_a(a);
-	}
-}
-
-int		optimize_moves(Stack **a, Stack **b, int pos_a, int pos_b)
-{
-	int	i;
-
-	i = 0;
-	if ((pos_a <= ((*a)->length / 2)) && (pos_b <= ((*b)->length / 2)))
-	{
-		while (i < pos_a && i < pos_b)
-		{
-			rotate_both(a, b);
-			i++;
-		}
-	}
-	return (i);
-}
-
-void	bring_min_to_top(Stack **a)
-{
-	int		min;
-	int		pos;
+	int	min;
+	int	pos;
 
 	min = find_min(*a);
 	if ((*a)->begin->value != min)
@@ -103,25 +57,12 @@ void	bring_min_to_top(Stack **a)
 	}
 }
 
-int	middle_quartils(Stack *stack, Quartils *quartils)
+void	push_quartils(t_stack **a, t_stack **b, t_quartils *quartils)
 {
-	StackNode	*current;
+	t_stacknode	*current;
 
-	current = stack->begin;
-	while (current)
-	{
-		if (quartils->q1 <= current->value && current->value <= quartils->q3)
-			return (1);
-		current = current->next;
-	}
-	return (0);
-}
-
-void	push_quartils(Stack **a, Stack **b, Quartils *quartils)
-{
-	StackNode	*current;
-
-	while (middle_quartils(*a, quartils) && (*a)->length >= 8)
+	current = (*a)->begin;
+	while (current && middle_quartils(*a, quartils) && (*a)->length >= 8)
 	{
 		current = (*a)->begin;
 		if (current->value >= quartils->q1 && current->value <= quartils->med)
@@ -129,7 +70,8 @@ void	push_quartils(Stack **a, Stack **b, Quartils *quartils)
 			push_b(a, b);
 			rotate_b(b);
 		}
-		else if (current->value <= quartils->q3 && current->value >= quartils->med)
+		else if (current->value <= quartils->q3
+			&& current->value >= quartils->med)
 			push_b(a, b);
 		else
 			rotate_a(a);
@@ -143,27 +85,7 @@ void	push_quartils(Stack **a, Stack **b, Quartils *quartils)
 	}
 }
 
-int	is_sorted(Stack *stack)
-{
-	StackNode	*current;
-	int			i;
-
-	current = stack->begin;
-	if (stack->length > 0)
-	{
-		i = 1;
-		while (i++ < stack->length)
-		{
-			if (current->value > current->next->value)
-				return (0);
-			current = current->next;
-		}
-		return (1);
-	}
-	return (0);
-}
-
-void	handle_three(Stack **a)
+void	handle_three(t_stack **a)
 {
 	int	first;
 	int	mid;

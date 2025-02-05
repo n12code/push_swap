@@ -6,15 +6,15 @@
 /*   By: nbodin <nbodin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 14:41:39 by nbodin            #+#    #+#             */
-/*   Updated: 2025/02/04 10:53:02 by nbodin           ###   ########lyon.fr   */
+/*   Updated: 2025/02/05 11:29:27 by nbodin           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	reverse_rotate_a(Stack **a)
+void	reverse_rotate_a(t_stack **a)
 {
-	StackNode	*node_to_rotate;
+	t_stacknode	*node_to_rotate;
 
 	if ((*a)->length < 2)
 		return ;
@@ -22,14 +22,12 @@ void	reverse_rotate_a(Stack **a)
 	if (!node_to_rotate)
 		return ;
 	push_stack_top(a, node_to_rotate);
-	if (!(*a))
-		return ;
-	printf("rra\n");	
+	printf("rra\n");
 }
 
-void	reverse_rotate_b(Stack **b)
+void	reverse_rotate_b(t_stack **b)
 {
-	StackNode	*node_to_rotate;
+	t_stacknode	*node_to_rotate;
 
 	if ((*b)->length < 2)
 		return ;
@@ -37,15 +35,13 @@ void	reverse_rotate_b(Stack **b)
 	if (!node_to_rotate)
 		return ;
 	push_stack_top(b, node_to_rotate);
-	if (!(*b))
-		return ;
-	printf("rrb\n");	
+	printf("rrb\n");
 }
 
-void	reverse_rotate_both(Stack **a, Stack **b)
+void	reverse_rotate_both(t_stack **a, t_stack **b)
 {
-	StackNode	*a_node_to_rotate;
-	StackNode	*b_node_to_rotate;
+	t_stacknode	*a_node_to_rotate;
+	t_stacknode	*b_node_to_rotate;
 
 	if ((*a)->length >= 2)
 	{
@@ -53,8 +49,6 @@ void	reverse_rotate_both(Stack **a, Stack **b)
 		if (!a_node_to_rotate)
 			return ;
 		push_stack_top(a, a_node_to_rotate);
-		if (!(*a))
-			return ;
 	}
 	if ((*b)->length >= 2)
 	{
@@ -62,8 +56,6 @@ void	reverse_rotate_both(Stack **a, Stack **b)
 		if (!b_node_to_rotate)
 			return ;
 		push_stack_top(b, b_node_to_rotate);
-		if (!(*b))
-			return ;
 	}
 	printf("rrr\n");
 }

@@ -6,17 +6,17 @@
 /*   By: nbodin <nbodin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 14:41:41 by nbodin            #+#    #+#             */
-/*   Updated: 2025/02/04 10:52:53 by nbodin           ###   ########lyon.fr   */
+/*   Updated: 2025/02/05 10:01:19 by nbodin           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdlib.h>
 
-void	quick_sort(StackNode *top, StackNode *bottom)
+void	quick_sort(t_stacknode *top, t_stacknode *bottom)
 {
-	StackNode	*pivot;
-	
+	t_stacknode	*pivot;
+
 	if (!top || !bottom || top == bottom)
 		return ;
 	pivot = partition(top, bottom);
@@ -26,10 +26,10 @@ void	quick_sort(StackNode *top, StackNode *bottom)
 		quick_sort(pivot->next, bottom);
 }
 
-StackNode *partition(StackNode *top, StackNode *bottom)
+t_stacknode	*partition(t_stacknode *top, t_stacknode *bottom)
 {
-	StackNode	*i;
-	StackNode	*j;
+	t_stacknode	*i;
+	t_stacknode	*j;
 	int			pivot;
 
 	i = NULL;
@@ -47,10 +47,10 @@ StackNode *partition(StackNode *top, StackNode *bottom)
 		}
 		j = j->next;
 	}
-	return i;
+	return (i);
 }
 
-void	swap_nodes(StackNode *top, StackNode *bottom)
+void	swap_nodes(t_stacknode *top, t_stacknode *bottom)
 {
 	int	temp;
 

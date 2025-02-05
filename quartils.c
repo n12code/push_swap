@@ -6,21 +6,21 @@
 /*   By: nbodin <nbodin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 14:41:42 by nbodin            #+#    #+#             */
-/*   Updated: 2025/02/04 10:52:50 by nbodin           ###   ########lyon.fr   */
+/*   Updated: 2025/02/05 10:19:49 by nbodin           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdlib.h>
 
-//re-check the system to get the quartils, need to be more precise
-Quartils *get_quartils(Stack *a)
+// re-check the system to get the quartils, need to be more precise
+t_quartils	*get_quartils(t_stack *a)
 {
 	int			q1_index;
 	int			med_index;
 	int			q3_index;
-	Quartils 	*quartils;
-	
+	t_quartils	*quartils;
+
 	quartils = malloc(sizeof(*quartils));
 	if (!quartils)
 		return (NULL);
@@ -35,14 +35,14 @@ Quartils *get_quartils(Stack *a)
 	get_first_quartil(a, &quartils, q1_index);
 	get_median(a, &quartils, med_index);
 	get_third_quartil(a, &quartils, q3_index);
-	return quartils;
+	return (quartils);
 }
 
-void get_first_quartil(Stack *a, Quartils **quartils, int q1_index)
+void	get_first_quartil(t_stack *a, t_quartils **quartils, int q1_index)
 {
 	int			i;
-	StackNode	*current;
-	StackNode	*next;
+	t_stacknode	*current;
+	t_stacknode	*next;
 
 	i = 0;
 	current = a->begin;
@@ -59,11 +59,11 @@ void get_first_quartil(Stack *a, Quartils **quartils, int q1_index)
 	}
 }
 
-void get_median(Stack *a, Quartils **quartils, int med_index)
+void	get_median(t_stack *a, t_quartils **quartils, int med_index)
 {
 	int			i;
-	StackNode	*current;
-	StackNode	*next;
+	t_stacknode	*current;
+	t_stacknode	*next;
 
 	i = 0;
 	current = a->begin;
@@ -80,11 +80,11 @@ void get_median(Stack *a, Quartils **quartils, int med_index)
 	}
 }
 
-void get_third_quartil(Stack *a, Quartils **quartils, int q3_index)
+void	get_third_quartil(t_stack *a, t_quartils **quartils, int q3_index)
 {
 	int			i;
-	StackNode	*current;
-	StackNode	*next;
+	t_stacknode	*current;
+	t_stacknode	*next;
 
 	i = 0;
 	current = a->begin;
@@ -101,11 +101,11 @@ void get_third_quartil(Stack *a, Quartils **quartils, int q3_index)
 	}
 }
 
-int	still_medium_quartils(Stack *a, Quartils *quartils)
+int	still_medium_quartils(t_stack *a, t_quartils *quartils)
 {
-	StackNode *current;
-	StackNode *next;
-	
+	t_stacknode	*current;
+	t_stacknode	*next;
+
 	current = a->begin;
 	while (current)
 	{
@@ -114,5 +114,5 @@ int	still_medium_quartils(Stack *a, Quartils *quartils)
 			return (1);
 		current = next;
 	}
-	return (0);	
+	return (0);
 }
