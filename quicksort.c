@@ -6,12 +6,11 @@
 /*   By: nbodin <nbodin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 14:41:41 by nbodin            #+#    #+#             */
-/*   Updated: 2025/02/05 10:01:19 by nbodin           ###   ########lyon.fr   */
+/*   Updated: 2025/02/06 09:35:20 by nbodin           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdlib.h>
 
 void	quick_sort(t_stacknode *top, t_stacknode *bottom)
 {

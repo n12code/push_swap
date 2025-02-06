@@ -6,7 +6,7 @@
 /*   By: nbodin <nbodin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 14:41:36 by nbodin            #+#    #+#             */
-/*   Updated: 2025/02/05 11:28:26 by nbodin           ###   ########lyon.fr   */
+/*   Updated: 2025/02/06 09:37:31 by nbodin           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	swap_a(t_stack **a)
 		return ;
 	push_stack_top(a, first_node);
 	push_stack_top(a, second_node);
-	printf("sa\n");
+	ft_putendl_fd("sa", 1);
 }
 
 void	swap_b(t_stack **b)
@@ -45,7 +45,7 @@ void	swap_b(t_stack **b)
 		return ;
 	push_stack_top(b, first_node);
 	push_stack_top(b, second_node);
-	printf("sb\n");
+	ft_putendl_fd("sb", 1);
 }
 
 void	swap_both(t_stack **a, t_stack **b)
@@ -69,52 +69,5 @@ void	swap_both(t_stack **a, t_stack **b)
 	push_stack_top(b, first_node_b);
 	push_stack_top(a, second_node_a);
 	push_stack_top(b, second_node_b);
-	printf("ss\n");
+	ft_putendl_fd("ss", 1);
 }
-
-// void	swap_a(t_stack **a)
-// {
-// 	int		first_node_value;
-
-// 	if ((*a)->length < 2)
-// 		return ;
-// 	first_node_value = (*a)->begin->value;
-// 	(*a)->begin->value = (*a)->begin->next->value;
-// 	(*a)->begin->next->value = first_node_value;
-// 	printf("sa\n");
-// }
-
-// void	swap_b(t_stack **b)
-// {
-// 	int		first_node_value;
-
-// 	if ((*b)->length < 2)
-// 		return ;
-// 	first_node_value = (*b)->begin->value;
-// 	(*b)->begin->value = (*b)->begin->next->value;
-// 	(*b)->begin->next->value = first_node_value;
-// 	printf("sb\n");
-// }
-
-// void	swap_both(t_stack **a, t_stack **b)
-// {
-// 	int	first_node_value;
-
-// 	if ((*a)->length >= 2)
-// 	{
-// 		if ((*a)->length < 2)
-// 			return ;
-// 		first_node_value = (*a)->begin->value;
-// 		(*a)->begin->value = (*a)->begin->next->value;
-// 		(*a)->begin->next->value = first_node_value;
-// 	}
-// 	if ((*b)->length >= 2)
-// 	{
-// 		if ((*b)->length < 2)
-// 			return ;
-// 		first_node_value = (*b)->begin->value;
-// 		(*b)->begin->value = (*b)->begin->next->value;
-// 		(*b)->begin->next->value = first_node_value;
-// 	}
-// 	printf("ss\n");
-// }

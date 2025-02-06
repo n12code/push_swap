@@ -6,12 +6,11 @@
 /*   By: nbodin <nbodin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 14:41:47 by nbodin            #+#    #+#             */
-/*   Updated: 2025/02/05 16:16:44 by nbodin           ###   ########lyon.fr   */
+/*   Updated: 2025/02/06 09:41:10 by nbodin           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdlib.h>
 
 void	clear_stack(t_stack **stack)
 {
@@ -39,25 +38,6 @@ int	is_empty_stack(t_stack *stack)
 	return (0);
 }
 
-//remove this when pushing
-void	print_stack(t_stack *stack)
-{
-	t_stacknode	*current;
-
-	if (is_empty_stack(stack))
-		printf("nothing to print\n");
-	else
-	{
-		current = stack->begin;
-		while (current)
-		{
-			printf("%d ", current->value);
-			current = current->next;
-		}
-		printf("\n");
-	}
-}
-
 t_stacknode	*create_new_node(int value)
 {
 	t_stacknode	*node;
@@ -70,3 +50,21 @@ t_stacknode	*create_new_node(int value)
 	node->back = NULL;
 	return (node);
 }
+
+// #include <stdio.h>
+// void	print_stack(t_stack *stack)
+// {
+// 	t_stacknode	*current;
+
+// 	if (is_empty_stack(stack))
+// 		return ;
+// 	else
+// 	{
+// 		current = stack->begin;
+// 		while (current)
+// 		{
+// 			printf("%d ", current->value);
+// 			current = current->next;
+// 		}
+// 	}
+// }

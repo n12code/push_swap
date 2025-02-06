@@ -6,7 +6,7 @@
 /*   By: nbodin <nbodin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 14:41:39 by nbodin            #+#    #+#             */
-/*   Updated: 2025/02/05 11:29:27 by nbodin           ###   ########lyon.fr   */
+/*   Updated: 2025/02/06 09:19:07 by nbodin           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	reverse_rotate_a(t_stack **a)
 	if (!node_to_rotate)
 		return ;
 	push_stack_top(a, node_to_rotate);
-	printf("rra\n");
+	ft_putendl_fd("rra", 1);
 }
 
 void	reverse_rotate_b(t_stack **b)
@@ -35,7 +35,7 @@ void	reverse_rotate_b(t_stack **b)
 	if (!node_to_rotate)
 		return ;
 	push_stack_top(b, node_to_rotate);
-	printf("rrb\n");
+	ft_putendl_fd("rrb", 1);
 }
 
 void	reverse_rotate_both(t_stack **a, t_stack **b)
@@ -57,5 +57,5 @@ void	reverse_rotate_both(t_stack **a, t_stack **b)
 			return ;
 		push_stack_top(b, b_node_to_rotate);
 	}
-	printf("rrr\n");
+	ft_putendl_fd("rrr", 1);
 }

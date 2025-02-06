@@ -1,4 +1,5 @@
 SRC = main.c \
+	  main_utils.c \
       parsing.c \
 	  parsing_utils.c \
 	  quicksort.c \

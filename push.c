@@ -6,7 +6,7 @@
 /*   By: nbodin <nbodin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 14:41:34 by nbodin            #+#    #+#             */
-/*   Updated: 2025/02/05 15:37:16 by nbodin           ###   ########lyon.fr   */
+/*   Updated: 2025/02/06 09:19:19 by nbodin           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	push_a(t_stack **a, t_stack **b)
 	if (!node_to_push)
 		return ;
 	push_stack_top(a, node_to_push);
-	printf("pa\n");
+	ft_putendl_fd("pa", 1);
 }
 
 void	push_b(t_stack **a, t_stack **b)
@@ -31,5 +31,5 @@ void	push_b(t_stack **a, t_stack **b)
 	if (!node_to_push)
 		return ;
 	push_stack_top(b, node_to_push);
-	printf("pb\n");
+	ft_putendl_fd("pb", 1);
 }

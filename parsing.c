@@ -6,12 +6,11 @@
 /*   By: nbodin <nbodin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 15:00:57 by nbodin            #+#    #+#             */
-/*   Updated: 2025/02/05 16:15:57 by nbodin           ###   ########lyon.fr   */
+/*   Updated: 2025/02/06 09:34:42 by nbodin           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdlib.h>
 
 int	parse(int nb_of_elements, char **input, int *number_array, t_stack **a)
 {

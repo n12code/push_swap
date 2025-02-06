@@ -6,12 +6,11 @@
 /*   By: nbodin <nbodin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 14:41:46 by nbodin            #+#    #+#             */
-/*   Updated: 2025/02/05 10:03:02 by nbodin           ###   ########lyon.fr   */
+/*   Updated: 2025/02/06 09:35:23 by nbodin           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdlib.h>
 
 t_stacknode	*remove_stack_top(t_stack **stack)
 {

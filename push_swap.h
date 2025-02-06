@@ -6,7 +6,7 @@
 /*   By: nbodin <nbodin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 10:43:33 by nbodin            #+#    #+#             */
-/*   Updated: 2025/02/05 17:31:41 by nbodin           ###   ########lyon.fr   */
+/*   Updated: 2025/02/06 09:41:15 by nbodin           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 # include <limits.h>
 # include <stddef.h>
-# include <stdio.h> //remove
+# include <stdlib.h>
+# include <unistd.h>
 
 typedef struct StackNode
 {
@@ -94,9 +95,8 @@ void					insert_in_a(t_stack **a, t_stack **b,
 							int best_b_node_value);
 int						is_sorted(t_stack *stack);
 
+//void					print_stack(t_stack *stack);
 int						is_empty_stack(t_stack *stack);
-void					print_stack(t_stack *stack);
-void					print_stack(t_stack *stack); // remove
 void					clear_stack(t_stack **stack);
 void					push_stack_top(t_stack **stack, t_stacknode *node);
 void					push_stack_bottom(t_stack **stack, t_stacknode *node);
@@ -115,5 +115,9 @@ void					rotate_both(t_stack **a, t_stack **b);
 void					reverse_rotate_a(t_stack **a);
 void					reverse_rotate_b(t_stack **b);
 void					reverse_rotate_both(t_stack **a, t_stack **b);
+
+void					ft_putendl_fd(char *s, int fd);
+void					ft_putstr_fd(char *s, int fd);
+void					print_and_exit(void);
 
 #endif

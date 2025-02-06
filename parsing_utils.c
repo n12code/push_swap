@@ -6,12 +6,11 @@
 /*   By: nbodin <nbodin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 15:01:07 by nbodin            #+#    #+#             */
-/*   Updated: 2025/02/05 10:10:18 by nbodin           ###   ########lyon.fr   */
+/*   Updated: 2025/02/06 09:34:38 by nbodin           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stddef.h>
 
 int	check_duplicates(size_t nb_of_elements, int number_array[nb_of_elements])
 {
